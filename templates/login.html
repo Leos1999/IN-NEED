@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <style>
-body {font-family: Arial, Helvetica, sans-serif;position: relative; }
+body {font-family: Arial, Helvetica, sans-serif;position: relative; overflow-x: hidden;}
 form {border: 3px solid #f1f1f1;}
 
 input[type=text], input[type=password] {
@@ -12,7 +12,8 @@ input[type=text], input[type=password] {
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
-  border: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  border-style: none;
   box-sizing: border-box;
 }
 
@@ -30,9 +31,10 @@ button:hover {
   opacity: 0.8;
 }
 
-.form-container{
-    
+.main{
+    z-index: +1;
 }
+
 .cancelbtn {
   width: auto;
   padding: 10px 18px;
@@ -40,13 +42,8 @@ button:hover {
 }
 
 .img-container {
-  text-align: center;
-  margin: 24px 0 12px 0;
-}
-
-img.avatar {
-  width: 40%;
-  border-radius: 50%;
+  overflow: hidden;
+  margin-top: 24px;
 }
 
 
@@ -70,31 +67,22 @@ span.psw {
 <body>
 
 
-<div class="row" style="z-index: +1; background-image:linear-gradient(to top right,#ff8ce2,#fc0d9d), url(images/patient-signup.jpg);background-repeat:no-repeat,no-repeat;background-blend-mode:  lighten;overflow-x: hidden;">
-<div class = "col-lg-4"></div>
-<div class="col-lg-4 col-sm-12" style="z-index: +2; opacity: 1; background-color: white;">
-    <h2 style="text-align: center;">Sign Up</h2>
+<div class="row main">
+<div class = "col-lg-2"></div>
+<div class="col-lg-4 img-container">
+    <img style="height: 720px;" src="IN-NEED/templates/images/patient-signup.jpg">
+</div>
+<div class="col-lg-3 col-sm-12" style="background-color: white;">
+    <h2 style="text-align: center; font-size: 20px;padding-top:10px; ">Sign Up</h2>
     <form action="{{ url_for('recommend') }}">
     <div class="container">
-    <label for="uname"><b>Username</b></label>
     <input type="text" placeholder="Username" name="uname" required>
-
-    <label for="fname"><b>First Name</b></label>
     <input type="text" placeholder="First name" name="fname" required>
-
-    <label for="lname"><b>Last Name</b></label>
     <input type="text" placeholder="Last name" name="lname" required>
-      <label for="dob"><b>Date Of Birth</b></label>
-    <input type="text" placeholder="Username" name="dob" required>
-
-    <label for="mail"><b>Email</b></label>
+    <input type="text" placeholder="Date Of Birth" name="dob" required>
     <input type="text" placeholder="Email" name="mail" required>
-      <label for="gender"><b>Gender</b></label>
     <input type="text" placeholder="Gender" name="gender" required>
-
-    <label for="address"><b>Address</b></label>
     <input type="text" placeholder="Address" name="address" required>
-     <label for="password"><b>Password</b></label>
     <input type="password" placeholder="Password" name="password" required>
     <button type="submit">Login</button>
     <label>
@@ -108,7 +96,7 @@ span.psw {
   </div>
 </form>
 </div>
-<div class="col-lg-4"></div>
+<div class="col-lg-3"></div>
 </div>
 
 </body>
